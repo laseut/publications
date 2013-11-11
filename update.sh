@@ -11,15 +11,12 @@ cd "$THIS_DIR"
 
 S1="$(git pull origin)"
 S2="Already up-to-date."
-echo $S1
-update=false
 if [ "$S1" != "$S2" ] ; then
     echo "Changes detected. Updating database..."
 elif [ "$1" = "-f" ] ; then
     echo "Forcing update of database..."
 else
     # No changed were made
-    echo "No changes made."
     exit 0
 fi
 
