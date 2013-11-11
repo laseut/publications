@@ -12,11 +12,14 @@ S2="Already up-to-date."
 echo $S1
 update=false
 if [ "$S1" != "$S2" ] ; then
+    update=true
+    echo "Changes detected. Updating database..."
 elif [ "$1" = "-f" ] ; then
+    update=true
+    echo "Forcing update of database..."
 fi
 if $update ; then
     # Changes were made
-    echo "Changes detected. Updating database..."
     jabref -n -o update_database.sql,mysql publications.bib
     echo $?
     mysql --user=root --password=galliumnitride -D publications < update_database.sql
