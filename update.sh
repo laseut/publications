@@ -17,7 +17,7 @@ elif [ "$1" = "-f" ] ; then
     echo "Forcing update of database..."
 else
     # No changed were made
-    echo "No changes."
+    echo "No changes made."
     exit 0
 fi
 
